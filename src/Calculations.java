@@ -5,10 +5,9 @@ public class Calculations {
 
         File file = new File("Calculations.txt");
         File file1 = new File("Calculations2.txt");
-        try {
-            BufferedReader bfr = new BufferedReader(new FileReader(file));
+        try (BufferedReader bfr = new BufferedReader(new FileReader(file));
+             BufferedWriter bfw = new BufferedWriter(new FileWriter(file1))) {
             String line;
-            BufferedWriter bfw = new BufferedWriter(new FileWriter(file1));
             while ((line = bfr.readLine()) != null) {
                 String[] sings = line.split(" ");
                 double number1 = Double.parseDouble(sings[0]);
@@ -16,9 +15,6 @@ public class Calculations {
                 double result = getResult(sings[1], number1, number2);
                 write(bfw, sings, number1, number2, result);
             }
-            bfr.close();
-            bfw.flush();
-            bfw.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -42,13 +38,8 @@ public class Calculations {
         return result;
     }
 
-    private static void write(BufferedWriter bfw, String[] sings, double number1, double number2, double result) {
-        try {
-            bfw.write(number1 + " " + sings[1] + " " + number2 + " = " + result);
-            bfw.newLine();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private static void write(BufferedWriter bfw, String[] sings, double number1, double number2, double result) throws IOException {
+        bfw.write(number1 + " " + sings[1] + " " + number2 + " = " + result);
+        bfw.newLine();
     }
 }
