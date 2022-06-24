@@ -1,0 +1,5 @@
+Treść zadania
+Stwórz ręcznie plik tekstowy "operations.txt" z kilkoma działaniami matematycznymi.
+Liczba działań może być dowolna, a liczby mogą być całkowite, lub zmiennoprzecinkowe. Następnie napisz program, w którym wczytasz powyższy plik.
+Oblicz wyniki wszystkich działań, wyświetl je z wynikami w konsoli i zapisz do nowego pliku. Dopuszczalny jest też format z zerami.
+Napisz program w taki sposób, aby cała logika programu nie była zawarta w jednej metodzie. Wydziel metodę do wczytywania danych, wyświetlania wyników i zapisu do pliku. Możesz też tworzyć pomocnicze klasy.
